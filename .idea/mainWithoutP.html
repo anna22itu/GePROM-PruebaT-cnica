@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+  <script>
+    $(document).ready(function(){
+      setInterval(fun_petition,3000); // Cada 3 seg. llamamos a la función que hace la petición
+    });
+
+    function fun_petition(){
+      x = Math.floor(Math.random()*100);
+      y = Math.floor(Math.random()*100);
+      z = Math.floor(Math.random()*100);
+      s = Math.floor(Math.random()*100);
+      var data =[x,y,z,s];
+      console.log(data);
+      var total = data[0] + data[1]  + data[2]  + data[3]; // Cáculo de los votos totales
+      console.log(total);
+
+      for (var i = 0;i<4;i++){
+
+        // Definición de parámetros
+        var menu = "#menu-"+ (i+1) ;
+        var animal = "#animal-"+ (i+1) ;
+        var voto = "#voto-"+ (i+1) ;
+        var icono = "#icono-"+ (i+1);
+        var animate = '--animate-width-'+ (i+1);
+
+        var porcentaje = Math.round((data[i]/total)*100);
+        var barra = document.getElementById('menu-' + (i+1)); // Barras de la clase barra
+        var colorBarra = document.querySelector(':root');
+
+        // Eliminación de lo anterior para que no se superponga
+        $(menu).empty();
+        $(voto).empty();
+
+        // Modificaciones de los valores
+        colorBarra.style.setProperty(animate, porcentaje + '%')
+        barra.style.animationName = 'animation-' + (i+1) ;
+        barra.style.width = porcentaje + '%';
+
+        console.log('menu-' + (i+1) +' = ' + porcentaje + '%');
+        console.log("porcentaje = "+ colorBarra.style.getPropertyValue(animate));
+
+        // Añadimos líneas en el body
+        var row_porcentaje = "<span>" + porcentaje + "%"+ "</span>";
+        $(menu).append(row_porcentaje);
+        var row_votos = "<span>" + data[i] + " votos"+"</span>";
+        $(voto).append(row_votos);
+      }
+    }
+  </script>
+</head>
+
+
+<body>
+<h2 id="Bienvenido">Bienvenido!</h2>
+<h2 id = "iconoBienvenido"><span>&#129306</span> </h2>
+
+<div class = "principal">
+  <h2>¿Qué animal te gusta más? &#128521</h2>
+  <div class="encuesta">
+    <div class = "datos">
+      <div class = "respuesta" id="animal-1">
+        <span>Pinguino</span>
+        <span class = "icono" id="icono-1">&#128039</span>
+        <span id = "voto-1">9 votos</span>
+      </div>
+      <div class = "barra">
+        <div id = "menu-1">8%</div>
+
+      </div>
+    </div>
+    <div class = "datos">
+      <div class = "respuesta" id="animal-2">
+        <span>Ratón</span>
+        <span class = "icono" id="icono-2">&#128045</span>
+        <span id = "voto-2">36 votos</span>
+      </div>
+      <div class = "barra">
+        <div id = "menu-2">30%</div>
+      </div>
+    </div>
+    <div class = "datos">
+      <div class = "respuesta" id="animal-3">
+        <span>Delfín</span>
+        <span class = "icono" id="icono-3">&#128044</span>
+        <span id = "voto-3">18 votos</span>
+      </div>
+      <div class = "barra">
+        <div id = "menu-3">15%</div>
+      </div>
+    </div>
+    <div class = "datos">
+      <div class = "respuesta" id="animal-4">
+        <span>Vaca</span>
+        <span class = "icono" id="icono-4">&#128046</span>
+        <span id = "voto-4">60 votos</span>
+      </div>
+      <div class = "barra">
+        <div id = "menu-4">60%</div>
+      </div>
+    </div>
+
+    <div class = 'emojis'>
+      <div>&#128525</div>
+      <div>&#128565</div>
+      <div>&#128541</div>
+      <div>&#128519</div>
+    </div>
+  </div>
+</div>
+<div class = 'cubo'>
+  <div></div>
+</div>
+
+</body>
+</html>

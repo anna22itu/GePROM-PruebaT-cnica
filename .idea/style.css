@@ -1,0 +1,186 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --animate-width-1: 8%;
+    --animate-width-2: 30%;
+    --animate-width-3: 15%;
+    --animate-width-4: 60%;
+}
+
+body{
+    height: 100vh;
+    background-color: lightskyblue;
+}
+
+#Bienvenido{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#iconoBienvenido{
+    text-align: center;
+    margin-top: 5px;
+}
+
+#iconoBienvenido span{
+    transform: rotate(-45deg);
+    display: inline-block;
+    animation: 1s infinite alternate movMano;
+    margin-bottom: 10px;
+}
+
+@keyframes movMano {
+    0%{transform: rotate(-45deg) translate(10px);}
+    50%{transform: rotate(-25deg) translate(10px);}
+    100%{transform: rotate(-45deg) translate(10px);}
+}
+
+.principal{
+    width: 40%;
+    min-width: 590px;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    margin-top: 20px;
+}
+
+.encuesta{
+    width: 100%;
+    padding: 20px 30px 50px;
+    background: linear-gradient(450deg, cornflowerblue,dodgerblue);
+    border-radius: 5px;
+    box-shadow: 0 30px 30px rgba(0,0,0,0.15);
+    color: white;
+    margin-top: 50px;
+}
+
+.datos{
+    width:  80%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.respuesta{
+    justify-content: space-between;
+    display: flex;
+}
+
+.barra {
+    position: relative;
+    margin-top: 5px;
+    border: 1px solid cyan;
+    border-radius: 20px;
+}
+
+.barra div{
+    position: relative;
+    width: 0;
+    border-radius: 10px;
+    height: 20px;
+    background-color: #00ff95;
+    overflow: hidden;
+}
+
+
+#menu-1{
+    animation: animation-1 3s forwards infinite;
+}
+@keyframes animation-1 {
+    0%   {width: 0%}
+    50%   {background-color: #00ffbb;}
+    100%   {background-color: #00d9ff; width: var(--animate-width-1)}
+}
+#menu-2{
+    animation: animation-2 3s forwards infinite;
+}
+@keyframes animation-2 {
+    0%   {width: 0%}
+    50%   {background-color: #00ffbb;}
+    100%   { background-color: #00d9ff; width: var(--animate-width-2)}
+}
+#menu-3{
+    animation: animation-3 3s forwards infinite;
+}
+@keyframes animation-3 {
+    0%   {width: 0%}
+    50%   {background-color: #00ffbb;}
+    100%   {background-color: #00d9ff;width: var(--animate-width-3)}
+}
+#menu-4{
+    animation: animation-4 3s forwards infinite;
+}
+@keyframes animation-4 {
+    0%   {width: 0%}
+    50%   {background-color: #00ffbb;}
+    100%   {background-color: #00d9ff; width: var(--animate-width-4)}
+}
+
+
+.emojis{
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    zoom: 150%;
+}
+
+.emojis div {
+    margin-top: 20px;
+    animation: 1s infinite alternate movEmojis;
+}
+@keyframes movEmojis {
+    0%{transform: rotate(40deg);}
+    50%{transform: rotate(0deg);}
+    100%{transform: rotate(40deg);}
+}
+
+.votos{
+    position: absolute;
+    float: right;
+    transform: translate(-50%,-50%);
+    left: 70%;
+    top: 55%;
+    color: white;
+}
+
+.votos span{
+    display: block;
+    margin-top:40px;
+}
+
+.icono{
+    position: fixed;
+    margin-left: 80px;
+    animation: moveIcons 15s linear infinite reverse;
+}
+
+
+@keyframes moveIcons {
+    0%   {left: 2px}
+    25%   {left: 160px}
+    50%   {left: 300px}
+    75%   {left: 160px}
+    100%  {left: 2px}
+}
+
+.cubo{
+    width: 50px;
+    height: 50px;
+    background:  #ff0000;
+    position: relative;
+    animation: movCube 6s infinite;
+}
+
+@keyframes movCube {
+    0%   {top: -20%; left: 0%; background: #ff0000; width: 50px;}
+    25%   {top: 10% ; left: 25% ;background: #993366; width: 25px;}
+    50%   {top: 40%; left: 50%;background: #800075; width: 50px;}
+    75%   {top: 60%;left: 75%; background: #e600ff; width: 75px;}
+    100% {top: 80%; left:85%;background: #8c00ff; width: 100px;}
+}
+
