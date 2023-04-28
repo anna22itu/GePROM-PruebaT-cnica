@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Variables del porcentaje */
 :root{
     --animate-width-1: 8%;
     --animate-width-2: 30%;
@@ -11,6 +12,7 @@
     --animate-width-4: 60%;
 }
 
+/* Características y estilos generales  */
 body{
     height: 100vh;
     background-color: lightskyblue;
@@ -33,6 +35,7 @@ body{
     margin-bottom: 10px;
 }
 
+/* Animación del emoji de la mano */
 @keyframes movMano {
     0%{transform: rotate(-45deg) translate(10px);}
     50%{transform: rotate(-25deg) translate(10px);}
@@ -50,6 +53,7 @@ body{
     margin-top: 20px;
 }
 
+/* Características y estilos del marco de encuestas */
 .encuesta{
     width: 100%;
     padding: 20px 30px 50px;
@@ -71,6 +75,7 @@ body{
     display: flex;
 }
 
+/* Características y estilos barras porcentajes  */
 .barra {
     position: relative;
     margin-top: 5px;
@@ -87,7 +92,7 @@ body{
     overflow: hidden;
 }
 
-
+/* Animaciones de cada una de las barras de porcentajes */
 #menu-1{
     animation: animation-1 3s forwards infinite;
 }
@@ -96,6 +101,7 @@ body{
     50%   {background-color: #00ffbb;}
     100%   {background-color: #00d9ff; width: var(--animate-width-1)}
 }
+
 #menu-2{
     animation: animation-2 3s forwards infinite;
 }
@@ -104,6 +110,7 @@ body{
     50%   {background-color: #00ffbb;}
     100%   { background-color: #00d9ff; width: var(--animate-width-2)}
 }
+
 #menu-3{
     animation: animation-3 3s forwards infinite;
 }
@@ -112,6 +119,7 @@ body{
     50%   {background-color: #00ffbb;}
     100%   {background-color: #00d9ff;width: var(--animate-width-3)}
 }
+
 #menu-4{
     animation: animation-4 3s forwards infinite;
 }
@@ -121,7 +129,7 @@ body{
     100%   {background-color: #00d9ff; width: var(--animate-width-4)}
 }
 
-
+/* Características emojis  */
 .emojis{
     position: absolute;
     top: 70px;
@@ -133,12 +141,15 @@ body{
     margin-top: 20px;
     animation: 1s infinite alternate movEmojis;
 }
+
+/* Animación emojis  */
 @keyframes movEmojis {
     0%{transform: rotate(40deg);}
     50%{transform: rotate(0deg);}
     100%{transform: rotate(40deg);}
 }
 
+/* Características y estilos votos  */
 .votos{
     position: absolute;
     float: right;
@@ -153,13 +164,14 @@ body{
     margin-top:40px;
 }
 
+/* Características y estilos icono animales  */
 .icono{
     position: fixed;
     margin-left: 80px;
     animation: moveIcons 15s linear infinite reverse;
 }
 
-
+/* Animación iconos animales  */
 @keyframes moveIcons {
     0%   {left: 2px}
     25%   {left: 160px}
@@ -168,6 +180,7 @@ body{
     100%  {left: 2px}
 }
 
+/* Características y estilos cubo en movimiento  */
 .cubo{
     width: 50px;
     height: 50px;

@@ -7,31 +7,27 @@
     <script>
         $(document).ready(function(){
             setInterval(fun_petition,3000); // Cada 3 seg. llamamos a la función que hace la petición
-            console.log("data");
         });
 
         function fun_petition(){
-            console.log("data11");
-            var http = new XMLHttpRequest();
-            console.log("Objeto XMLHttpRequest creado.");
+
+            var http = new XMLHttpRequest(); // Petición http al servidor web
+
             http.open("GET", "https://demos.geprom.com/datos.php", true);
             http.setRequestHeader('Content-type', 'application/json');
             http.setRequestHeader('Access-Control-Allow-Origin', '*');
             http.setRequestHeader('Access-Control-Allow-Methods', '*');
             http.setRequestHeader("Access-Control-Allow-Headers","Content-Type");
             http.setRequestHeader("Access-Control-Allow-Headers","'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'");
-            console.log("Estado cambiado. readyState: " + http.readyState + ", status: " + http.status);
 
             http.onreadystatechange = function(){
-                console.log("333data");
 
+                // Si está OK (código 200) haremos las modificaciones
                 if(http.readyState == 4 && http.status == 200){
 
-                    console.log("loaded");
+                    // Definición de parámetros generales
                     var data = JSON.parse(http.responseText);
-                    console.log(data);
                     var total = data.respuesta1 + data.respuesta2 + data.respuesta3 + data.respuesta4;
-                    console.log(total);
 
                     for (var i = 0;i<4;i++){
 
@@ -66,7 +62,7 @@
                     }
                 }
             }
-            http.send();
+            http.send(); // Se envía la solicitud
         }
     </script>
 </head>
