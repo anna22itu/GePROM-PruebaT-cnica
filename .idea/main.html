@@ -28,6 +28,7 @@
                     // Definición de parámetros generales
                     var data = JSON.parse(http.responseText);
                     var total = data.respuesta1 + data.respuesta2 + data.respuesta3 + data.respuesta4;
+                    var porcentajetotal = 0;
 
                     for (var i = 0;i<4;i++){
 
@@ -41,9 +42,17 @@
                         var porcentaje = Math.round((data["respuesta"+(1+i)]/total)*100);
                         var barra = document.getElementById('menu-' + (i+1)); // Barras de la clase barra
                         var colorBarra = document.querySelector(':root');
+                        porcentajetotal = porcentajetotal + porcentaje;
 
                         console.log('menu-' + (i+1) +' = ' + porcentaje + '%');
                         console.log("porcentaje = "+ colorBarra.style.getPropertyValue(animate));
+                        console.log("porcentaje total = " + porcentajetotal);
+
+                        // Condición para que sume 100%
+                        if(i === 3 && porcentajetotal < 100)
+                        {
+                            porcentaje = 100 - Math.round((data["respuesta"+(1)]/total)*100) - Math.round((data["respuesta"+(2)]/total)*100) - Math.round((data["respuesta"+(3)]/total)*100);
+                        }
 
                         // Eliminación de lo anterior para que no se superponga
                         $(menu).empty();
